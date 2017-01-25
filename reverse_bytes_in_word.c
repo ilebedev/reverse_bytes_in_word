@@ -36,6 +36,7 @@ int main(int argc, char** argv) {
 
   // Byte stack
   stack = (unsigned char*)malloc(word_size);
+  if (!stack) fail(argv[0], "failed to allocate byte stack");
 
   // Process entire file / stream
   while (word_size == (bytes_read = fread(stack, 1, word_size, in))) {
